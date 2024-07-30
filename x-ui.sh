@@ -41,7 +41,7 @@ os_version=$(grep -i version_id /etc/os-release | cut -d \" -f2 | cut -d . -f1)
 if [[ "${release}" == "arch" ]]; then
     echo "Your OS is Arch Linux"
 elif [[ "${release}" == "parch" ]]; then
-    echo "Your OS is Parch linux"
+    echo "Your OS is Parch Linux"
 elif [[ "${release}" == "manjaro" ]]; then
     echo "Your OS is Manjaro"
 elif [[ "${release}" == "armbian" ]]; then
@@ -49,9 +49,7 @@ elif [[ "${release}" == "armbian" ]]; then
 elif [[ "${release}" == "opensuse-tumbleweed" ]]; then
     echo "Your OS is OpenSUSE Tumbleweed"
 elif [[ "${release}" == "centos" ]]; then
-    if [[ ${os_version} -lt 8 ]]; then
-        echo -e "${red} Please use CentOS 8 or higher ${plain}\n" && exit 1
-    fi
+    echo "Your OS is CentOS" # 这里进行了修改，移除了版本检查
 elif [[ "${release}" == "ubuntu" ]]; then
     if [[ ${os_version} -lt 20 ]]; then
         echo -e "${red} Please use Ubuntu 20 or higher version!${plain}\n" && exit 1
@@ -92,7 +90,6 @@ else
     echo "- Oracle Linux 8+"
     echo "- OpenSUSE Tumbleweed"
     exit 1
-
 fi
 
 # Declare Variables
